@@ -19,7 +19,7 @@
 			</ul>
 
 			<ul sec:authorize="isAuthenticated()">
-				<li><span th:text=""></span>
+				<li><span sec:authentication="name"></span>
 					<ul>
 						<li><a href="#">perfil</a></li>
 						<li><a th:href="@{/logout}">sair</a></li>
