@@ -18,8 +18,11 @@ public class Input extends AbstractElementProcessor {
     java.lang.reflect.Field field = (java.lang.reflect.Field) element.getNodeProperty("field");
 
     Element node = new Element("input");
-    node.setAttribute("type", "text");
+    for(java.lang.annotation.Annotation annotation : field.getAnnotations())
+      if(!annotation.annotationType().getSimpleName().equals("Input") && !annotation.annotationType().getSimpleName().equals("Column"))
+        node.setAttribute("type", annotation.annotationType().getSimpleName().toLowerCase());
     node.setAttribute("name", field.getName());
+    node.setAttribute("value", null);
 
     for( Map.Entry<String, Attribute> entry : element.getAttributeMap().entrySet() )
       node.setAttribute(entry.getKey(), entry.getValue().getValue());
