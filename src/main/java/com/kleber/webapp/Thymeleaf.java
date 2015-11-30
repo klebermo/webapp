@@ -1,8 +1,9 @@
-import com.kleber.webapp;
+package com.kleber.webapp;
 
 import java.util.Set;
 import java.util.HashSet;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import org.thymeleaf.dialect.IDialect;
