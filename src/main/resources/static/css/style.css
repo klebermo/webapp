@@ -1,0 +1,44 @@
+@import url(https://fonts.googleapis.com/css?family=Sigmar+One|Special+Elite|Contrail+One);
+
+header {
+  background: green;
+}
+
+footer {
+  background: green;
+}
+
+nav {
+  background: green;
+}
+
+main {
+  font-family: 'Special Elite', cursive;
+}
+
+h1 , h2 , h3 , h4 , h5 , h6 {
+  font-family: 'Sigmar One', cursive;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+
+li {
+  display: inline;
+}
+
+a {
+  font-family: 'Contrail One', cursive;
+}
+
+.right {
+  text-align: right;
+}
+
+.left {
+  text-align: left;
+}
