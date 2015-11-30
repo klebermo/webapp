@@ -20,6 +20,11 @@ public class Form extends AbstractDialect {
     final Set<IProcessor> processor = new HashSet<IProcessor>();
     processor.add(new com.kleber.webapp.custom.thymeleaf.processor.Form());
     processor.add(new com.kleber.webapp.custom.thymeleaf.processor.FieldBox());
+    processor.add(new com.kleber.webapp.custom.thymeleaf.processor.Checkbox());
+    processor.add(new com.kleber.webapp.custom.thymeleaf.processor.Input());
+    processor.add(new com.kleber.webapp.custom.thymeleaf.processor.Radio());
+    processor.add(new com.kleber.webapp.custom.thymeleaf.processor.Select());
+    processor.add(new com.kleber.webapp.custom.thymeleaf.processor.Textarea());
     return processor;
   }
 }
