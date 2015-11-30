@@ -1,32 +1,43 @@
 package com.kleber.webapp.custom.thymeleaf.processor;
 
-import org.thymeleaf.processor.element.AbstractIterationElementProcessor;
+import java.util.Map;
+
+import org.thymeleaf.processor.element.AbstractElementProcessor;
+import org.thymeleaf.processor.ProcessorResult;
 import org.thymeleaf.Arguments;
 import org.thymeleaf.dom.Element;
+import org.thymeleaf.dom.Attribute;
+import org.thymeleaf.dom.Node;
 
-public class Form extends AbstractIterationElementProcessor {
+import com.kleber.webapp.generic.persistence.Model;
+
+public class Form extends AbstractElementProcessor {
 
   public Form() {
     super("form");
   }
 
-  public void processClonedHostIterationElement(Arguments arguments, Element iteratedChild) {
-  }
+  public ProcessorResult	processElement(Arguments arguments, Element element) {
+    Element form = new Element("form");
+    form.setProcessable(true);
 
-  public String	getIteratedElementName(Arguments arguments, Element element) {
-   return "form";
-  }
+    for( Map.Entry<String, Attribute> entry : element.getAttributeMap().entrySet() )
+      form.setAttribute(entry.getKey(), entry.getValue().getValue());
 
-  public boolean	removeHostIterationElement(Arguments arguments, Element element) {
-   return false;
-  }
+    Model target = (Model) arguments.getContext().getVariables().get("command");
+    for(int i=0; i<target.getFields().size(); i++) {
+      for(Node child : element.getElementChildren()) {
+        child.setNodeLocalVariable("field", target.getFields().get(i));
+        child.setProcessable(true);
+        form.addChild(child);
+      }
+    }
 
-  public AbstractIterationElementProcessor.IterationSpec getIterationSpec(Arguments arguments, Element element) {
-   return null;
+    return ProcessorResult.OK;
   }
 
   public int getPrecedence() {
-   return 1000;
+    return 1000;
   }
 
 }
