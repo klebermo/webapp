@@ -7,37 +7,37 @@
 </head>
 
 <body>
-	<form method="post" th:action="@{/signup}">
+	<form class="signup" method="post" th:action="@{/signup}">
 		<p>
 			<label>login:</label>
 			<input type="text" name="username"/>
 		</p>
-		
+
 		<p>
 			<label>senha:</label>
 			<input type="password" name="password"/>
 		</p>
-		
+
 		<p>
 			<label>nome:</label>
 			<input type="text" name="firstName"/>
 		</p>
-		
+
 		<p>
 			<label>sobrenome:</label>
 			<input type="text" name="lastName"/>
 		</p>
-		
+
 		<p>
 			<label>e-mail:</label>
 			<input type="text" name="email"/>
-		</p>		
-		
+		</p>
+
 		<p>
 			<input type="submit" value="cadastrar-se"/>
 		</p>
 	</form>
-	
+
 	<script src="script.js"></script>
 </body>
 

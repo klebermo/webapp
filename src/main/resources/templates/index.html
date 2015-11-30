@@ -7,8 +7,52 @@
 </head>
 
 <body>
-	Content of the document......
-	
+	<header>
+		<section class="left">
+			<h1>Webapp</h1>
+		</section>
+
+		<section class="right">
+			<ul sec:authorize="isAnonymous()">
+				<li><a th:href="@{/signin}">login</a></li>
+				<li><a th:href="@{/signup}">cadastro</a></li>
+			</ul>
+
+			<ul sec:authorize="isAuthenticated()">
+				<li><span th:text=""></span>
+					<ul>
+						<li><a href="#">perfil</a></li>
+						<li><a th:href="@{/logout}">sair</a></li>
+					</ul>
+				</li>
+			</ul>
+		</section>
+	</header>
+
+	<nav>
+		<ul>
+			<li><a href="#">item 1</a></li>
+			<li><a href="#">item 2</a></li>
+			<li><a href="#">item 3</a></li>
+			<li><a href="#">item 4</a></li>
+			<li><a href="#">item 5</a></li>
+		</ul>
+	</nav>
+
+	<main></main>
+
+	<footer>
+		<section class="left">
+			<h1>Copyright</h1>
+			<span> (2015) Kleber Mota de Oliveira</span>
+		</section>
+
+		<section class="right">
+			<h1>website</h1>
+			<a href="http://klebermota.eti.br"> klebermota.eti.br</a>
+		</section>
+	</footer>
+
 	<script src="script.js"></script>
 </body>
 
