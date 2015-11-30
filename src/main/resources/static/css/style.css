@@ -1,5 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Sigmar+One|Special+Elite|Contrail+One);
 
+body {
+  margin: 0;
+  font-family: 'Special Elite', cursive;
+}
+
 header {
   position: fixed;
   top: 0;
@@ -13,7 +18,6 @@ header section ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
-  text-align: center;
 }
 
 header section ul li {
@@ -33,7 +37,6 @@ footer section ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
-  text-align: center;
 }
 
 footer section ul li {
@@ -46,16 +49,18 @@ section {
 
 .right {
   position: absolute;
-  right: 0px;
+  right: 5px;
   width: 50%;
   text-align: right;
+  padding: 5px;
 }
 
 .left {
   position: absolute;
-  left: 0px;
+  left: 5px;
   width: 50%;
   text-align: left;
+  padding: 5px;
 }
 
 nav {
