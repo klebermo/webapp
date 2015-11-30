@@ -89,6 +89,15 @@ nav ul li a:hover {
   text-decoration-color: #003300;
 }
 
+ul li ul {
+  display: none;
+}
+
+ul li:hover > ul {
+  display: block;
+}
+}
+
 main {
   margin-top: 60px;
   width: 75%;
@@ -102,4 +111,68 @@ h1 , h2 , h3 , h4 , h5 , h6 {
 
 a {
   font-family: 'Contrail One', cursive;
+}
+
+form.signin {
+  border-color: #000000;
+  border-style: dashed;
+  border-width: medium;
+  background-color: #00a087;
+  position: absolute;
+  top: 25%;
+  bottom: 25%;
+  left: 25%;
+  right: 25%;
+}
+
+form.signup {
+  border-color: #000000;
+  border-style: dashed;
+  border-width: medium;
+  background-color: #00a087;
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  left: 25%;
+  right: 25%;
+}
+
+input[type="submit"] {
+  border-style: outset;
+  border-width: medium;
+  border-radius: 5px;
+  background-color: #0099FF;
+  font-family: 'Special Elite', cursive;
+  font-size: 18px;
+  height: 24px;
+  text-decoration-color: #000066;
+}
+
+input[type="submit"]:hover {
+  background-color: #000066;
+  text-decoration-color: #0099FF;
+}
+
+input[type="submit"]:active {
+  border-style: inset;
+  background-color: #000066;
+  text-decoration-color: #0099FF;
+}
+
+input {
+  border-color: #00CCFF;
+  border-style: ridge;
+  border-width: thick;
+  border-radius: 10px;
+  height: 24px;
+  font-family: 'Special Elite', cursive;
+  font-size: 18px;
+}
+
+input:focus {
+  border-color: #000066;
+}
+
+label {
+  height: 24px;
 }
