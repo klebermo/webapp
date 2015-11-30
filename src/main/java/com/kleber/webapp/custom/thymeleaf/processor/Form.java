@@ -10,23 +10,23 @@ public class Form extends AbstractIterationElementProcessor {
     super("form");
   }
 
-   public void processClonedHostIterationElement(Arguments arguments, Element iteratedChild) {
-   }
+  public void processClonedHostIterationElement(Arguments arguments, Element iteratedChild) {
+  }
 
-   public String	getIteratedElementName(Arguments arguments, Element element) {
-     return "form";
-   }
+  public String	getIteratedElementName(Arguments arguments, Element element) {
+   return "form";
+  }
 
-   public boolean	removeHostIterationElement(Arguments arguments, Element element) {
-     return false;
-   }
+  public boolean	removeHostIterationElement(Arguments arguments, Element element) {
+   return false;
+  }
 
-   public AbstractIterationElementProcessor.IterationSpec getIterationSpec(Arguments arguments, Element element) {
-     return null;
-   }
+  public AbstractIterationElementProcessor.IterationSpec getIterationSpec(Arguments arguments, Element element) {
+   return null;
+  }
 
-   public int getPrecedence() {
-     return 1000;
-   }
+  public int getPrecedence() {
+   return 1000;
+  }
 
 }
