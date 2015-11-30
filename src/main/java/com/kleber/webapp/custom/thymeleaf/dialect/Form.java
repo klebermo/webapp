@@ -19,6 +19,7 @@ public class Form extends AbstractDialect {
   public Set<IProcessor> getProcessors() {
     final Set<IProcessor> processor = new HashSet<IProcessor>();
     processor.add(new com.kleber.webapp.custom.thymeleaf.processor.Form());
+    processor.add(new com.kleber.webapp.custom.thymeleaf.processor.FieldBox());
     return processor;
   }
 }
