@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Login</title>
+	<link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+	<form method="post" th:action="@{/login}">
+		<p>
+			<label>login:</label>
+			<input type="text" name="login"/>
+		</p>
+		
+		<p>
+			<label>senha:</label>
+			<input type="password" name="senha"/>
+		</p>
+		
+		<p>
+			<input type="submit" value="entrar"/>
+		</p>
+	</form>
+	
+	<script src="script.js"></script>
+</body>
+
+</html>
