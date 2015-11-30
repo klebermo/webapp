@@ -27,7 +27,7 @@ public class Form extends AbstractElementProcessor {
     Model target = (Model) arguments.getContext().getVariables().get("command");
     for(int i=0; i<target.getFields().size(); i++) {
       for(Node child : element.getElementChildren()) {
-        child.setNodeLocalVariable("field", target.getFields().get(i));
+        child.setNodeProperty("field", target.getFields().get(i));
         child.setProcessable(true);
         form.addChild(child);
       }
