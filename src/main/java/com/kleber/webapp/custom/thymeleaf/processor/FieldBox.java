@@ -21,6 +21,7 @@ public class FieldBox extends AbstractConditionalVisibilityElementProcessor {
     java.lang.reflect.Field field = (java.lang.reflect.Field) element.getNodeProperty("field");
     for(Element node : element.getElementChildren()) {
       if(node.getNormalizedName().equals(field.getName())) {
+        node.setNodeProperty("field", field);
         node.setProcessable(true);
         return true;
       }
