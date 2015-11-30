@@ -89,15 +89,6 @@ nav ul li a:hover {
   text-decoration-color: #003300;
 }
 
-ul li ul {
-  display: none;
-}
-
-ul li:hover > ul {
-  display: block;
-}
-}
-
 main {
   margin-top: 60px;
   width: 75%;
