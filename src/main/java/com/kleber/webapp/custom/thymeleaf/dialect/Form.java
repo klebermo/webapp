@@ -25,6 +25,7 @@ public class Form extends AbstractDialect {
     processor.add(new com.kleber.webapp.custom.thymeleaf.processor.Radio());
     processor.add(new com.kleber.webapp.custom.thymeleaf.processor.Select());
     processor.add(new com.kleber.webapp.custom.thymeleaf.processor.Textarea());
+    processor.add(new com.kleber.webapp.custom.thymeleaf.processor.Label());
     return processor;
   }
 }
