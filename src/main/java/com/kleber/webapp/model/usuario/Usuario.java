@@ -3,11 +3,13 @@ package com.kleber.webapp.model.usuario;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.FetchType;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -19,32 +21,36 @@ import com.kleber.webapp.model.role.Role;
 
 @Entity
 public class Usuario extends Model implements UserDetails {
-	
+
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -7120399651221920699L;
 
 	@Id
 	private String id;
-	
+
 	@Column
 	private String username;
-	
+
 	@Column
 	private String password;
-	
+
 	@Column
 	private String firstName;
-	
+
 	@Column
 	private String lastName;
-	
+
 	@Column
 	private String email;
-	
-	@ManyToMany
+
+	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Role> roles;
+
+	public Usuario() {
+		setId(UUID.randomUUID().toString());
+	}
 
 	@Override
 	public String getId() {
@@ -94,7 +100,7 @@ public class Usuario extends Model implements UserDetails {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	public List<Role> getRoles() {
 		return roles;
 	}
@@ -102,7 +108,7 @@ public class Usuario extends Model implements UserDetails {
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
-	
+
 	@Override
 	public String toString() {
 		return firstName + " " + lastName;
@@ -127,7 +133,7 @@ public class Usuario extends Model implements UserDetails {
 	public boolean isEnabled() {
 		return false;
 	}
-	
+
 	public List<String> getRolesAsList(List<Role> list) {
 	    List <String> rolesAsList = new ArrayList<String>();
 	    for(Role role : list)
