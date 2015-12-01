@@ -2,15 +2,10 @@ package com.kleber.webapp.generic.persistence;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
 
 public abstract class Model extends Object {
 
 	public abstract Object getId();
-
-	public String genUUID() {
-		return UUID.randomUUID().toString();
-	}
 
 	public boolean equals(Model object) {
 		return getId().equals(object.getId());
