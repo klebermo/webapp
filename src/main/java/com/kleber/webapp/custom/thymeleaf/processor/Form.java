@@ -18,13 +18,18 @@ public class Form extends AbstractElementProcessor {
   }
 
   public ProcessorResult	processElement(Arguments arguments, Element element) {
+    Model target = (Model) arguments.getContext().getVariables().get("command");
+    String action = element.getAttributeValue("action");
+
     Element form = new Element("form");
     form.setProcessable(true);
+
+    form.setAttribute("method", "post");
+    form.setAttribute("action", "/"+action+"/"+target.getClass().getSimpleName());
 
     for( Map.Entry<String, Attribute> entry : element.getAttributeMap().entrySet() )
       form.setAttribute(entry.getKey(), entry.getValue().getValue());
 
-    Model target = (Model) arguments.getContext().getVariables().get("command");
     for(int i=0; i<target.getFields().size(); i++) {
       for(Node child : element.getElementChildren()) {
         child.setNodeProperty("field", target.getFields().get(i));
@@ -33,6 +38,8 @@ public class Form extends AbstractElementProcessor {
       }
     }
 
+    element.getParent().insertBefore(element, form);
+    element.getParent().removeChild(element);
     return ProcessorResult.OK;
   }
 
