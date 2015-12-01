@@ -9,6 +9,8 @@ import org.thymeleaf.dom.Element;
 import org.thymeleaf.dom.Attribute;
 import org.thymeleaf.dom.Text;
 
+import com.kleber.webapp.generic.persistence.Model;
+
 public class Radio extends AbstractElementProcessor {
 
   public Radio() {
@@ -17,12 +19,22 @@ public class Radio extends AbstractElementProcessor {
 
   public ProcessorResult processElement(Arguments arguments, Element element) {
     java.lang.reflect.Field field = (java.lang.reflect.Field) element.getNodeProperty("field");
+    Model target = (Model) arguments.getContext().getVariables().get("command");
 
     Element node = new Element("input");
     node.setAttribute("type", "radio");
     node.setAttribute("name", field.getName());
-    node.setAttribute("value", null);
-    node.addChild(new Text("..."));
+
+    Object value = target.getValue(field.getName());
+    if(value != null)
+      node.setAttribute("checked", "checked");
+
+    if(field.getType().isPrimitive())
+      node.setAttribute("value", (String) value);
+    else {
+      node.setAttribute("value", ((Model)value).getId().toString());
+      node.addChild(new Text(((Model)value).toString()));
+    }
 
     for( Map.Entry<String, Attribute> entry : element.getAttributeMap().entrySet() )
       node.setAttribute(entry.getKey(), entry.getValue().getValue());

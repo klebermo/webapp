@@ -25,7 +25,8 @@ public class Input extends AbstractElementProcessor {
       if(!annotation.annotationType().getSimpleName().equals("Input") && !annotation.annotationType().getSimpleName().equals("Column"))
         node.setAttribute("type", annotation.annotationType().getSimpleName().toLowerCase());
     node.setAttribute("name", field.getName());
-    node.setAttribute("value", (String) target.getValue(field.getName()));
+    if(target != null)
+      node.setAttribute("value", (String) target.getValue(field.getName()));
 
     for( Map.Entry<String, Attribute> entry : element.getAttributeMap().entrySet() )
       node.setAttribute(entry.getKey(), entry.getValue().getValue());

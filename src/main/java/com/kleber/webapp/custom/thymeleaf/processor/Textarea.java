@@ -23,7 +23,9 @@ public class Textarea extends AbstractElementProcessor {
 
     Element node = new Element("textarea");
     node.setAttribute("name", field.getName());
-    node.addChild(new Text((String) target.getValue(field.getName())));
+    if(target != null)
+      if(target.getValue(field.getName()) != null)
+        node.addChild(new Text((String) target.getValue(field.getName())));
 
     for( Map.Entry<String, Attribute> entry : element.getAttributeMap().entrySet() )
       node.setAttribute(entry.getKey(), entry.getValue().getValue());

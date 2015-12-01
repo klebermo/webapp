@@ -8,6 +8,8 @@ import org.thymeleaf.Arguments;
 import org.thymeleaf.dom.Element;
 import org.thymeleaf.dom.Attribute;
 
+import com.kleber.webapp.generic.persistence.Model;
+
 public class Select extends AbstractElementProcessor {
 
   public Select() {
@@ -16,7 +18,7 @@ public class Select extends AbstractElementProcessor {
 
   public ProcessorResult processElement(Arguments arguments, Element element) {
     java.lang.reflect.Field field = (java.lang.reflect.Field) element.getNodeProperty("field");
-    Class<?> clazz = field.getType();
+    Model target = (Model) arguments.getContext().getVariables().get("command");
 
     Element node = new Element("select");
     node.setAttribute("name", field.getName());
