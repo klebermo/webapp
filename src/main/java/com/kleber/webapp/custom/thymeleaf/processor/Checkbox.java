@@ -1,15 +1,9 @@
 package com.kleber.webapp.custom.thymeleaf.processor;
 
-import java.util.Map;
-
 import org.thymeleaf.processor.element.AbstractElementProcessor;
 import org.thymeleaf.processor.ProcessorResult;
 import org.thymeleaf.Arguments;
 import org.thymeleaf.dom.Element;
-import org.thymeleaf.dom.Attribute;
-import org.thymeleaf.dom.Text;
-
-import com.kleber.webapp.generic.persistence.Model;
 
 public class Checkbox extends AbstractElementProcessor {
 
@@ -18,28 +12,10 @@ public class Checkbox extends AbstractElementProcessor {
   }
 
   public ProcessorResult processElement(Arguments arguments, Element element) {
-    java.lang.reflect.Field field = (java.lang.reflect.Field) element.getNodeProperty("field");
-    Model target = (Model) arguments.getContext().getVariables().get("command");
-
-    Element node = new Element("input");
-    node.setAttribute("type", "checkbox");
-    node.setAttribute("name", field.getName());
-
-    Object value = target.getValue(field.getName());
-    if(value != null)
-      node.setAttribute("checked", "checked");
-
-    if(field.getType().isPrimitive())
-      node.setAttribute("value", (String) value);
-    else {
-      node.setAttribute("value", ((Model)value).getId().toString());
-      node.addChild(new Text(((Model)value).toString()));
-    }
-
-    for( Map.Entry<String, Attribute> entry : element.getAttributeMap().entrySet() )
-      node.setAttribute(entry.getKey(), entry.getValue().getValue());
-
-    element.getParent().insertBefore(element, node);
+    Element checkbox = new Element("input");
+    checkbox.setProcessable(true);
+    checkbox.setAttribute("type", "checkbox");
+    element.getParent().insertBefore(element, checkbox);
     element.getParent().removeChild(element);
     return ProcessorResult.OK;
   }
