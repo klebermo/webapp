@@ -1,4 +1,4 @@
-package com.kleberm.webapp.custom.annotation.type;
+package com.kleber.webapp.custom.annotation.type;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
