@@ -37,8 +37,8 @@ public class SecurityContext extends WebSecurityConfigurerAdapter {
       .csrf()
         .disable()
       .authorizeRequests()
-        .antMatchers("/**").permitAll()
-        .anyRequest().authenticated()
+        .antMatchers("/").permitAll()
+        .antMatchers("/profile").authenticated()
         .and()
       .formLogin()
         .loginPage("/signin")
@@ -75,4 +75,3 @@ public class SecurityContext extends WebSecurityConfigurerAdapter {
     return auth.getOrBuild();
   }
 }
-
