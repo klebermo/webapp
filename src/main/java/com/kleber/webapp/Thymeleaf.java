@@ -7,8 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import org.thymeleaf.dialect.IDialect;
-import org.thymeleaf.spring3.SpringTemplateEngine;
-import org.thymeleaf.extras.springsecurity3.dialect.SpringSecurityDialect;
+import org.thymeleaf.spring4.SpringTemplateEngine;
 
 import com.kleber.webapp.custom.thymeleaf.dialect.Form;
 
@@ -20,7 +19,6 @@ public class Thymeleaf {
     SpringTemplateEngine engine  =  new SpringTemplateEngine();
 
     final Set<IDialect> dialects = new HashSet<IDialect>();
-    dialects.add( new SpringSecurityDialect() );
     dialects.add( new Form() );
     engine.setDialects( dialects );
 
